@@ -41,15 +41,28 @@ function DashboardPage() {
         return () => clearInterval(interval);
     }, []);
 
+    const [searchText, setSearchText] = useState('');
+    const handleSearch = (event) => {
+        setSearchText(event.target.value);
+    };
 
+    const filteredProducts = Products.filter((product) =>
+        product.productName.includes(searchText)
+    );
 
     return (
 
         <div>
+            <header>
+                <h1>Open Offers</h1>
+                <input type="text" onChange={handleSearch} placeholder="Search offers" />
+            </header>
+
             <h1> Products For Sale: </h1>
             <div className="dashBoard1">
                 {
-                    Products.map((product) => {
+
+                            filteredProducts.map((product) => {
                         return (
                             <div >
                                 <ProductComponent  data={product}/>

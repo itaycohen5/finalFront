@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import Cookies from "js-cookie";
 import {Button} from "@mui/material";
@@ -7,12 +7,26 @@ import {useNavigate} from "react-router-dom";
 const Index = () => {
     const [isLogged , setIsLogged] = useState(false);
     const navigate = useNavigate();
+    const token = Cookies.get("token");
 
-    const Logout = () => {
-        if (isLogged) {
+    useEffect(() => {
+        token !== undefined && setIsLogged(true)
+    });
 
-        }
+
+    const logOut=()=>{
+        Cookies.remove("token")
+        setIsLogged(false)
+        navigate("../login")
     }
+
+    const logIn=()=>{
+        isLogged &&
+        Cookies.set("token",token)
+        navigate("../login")
+    }
+
+
     return (
         <div className='navbar'>
 
@@ -30,15 +44,9 @@ const Index = () => {
                             </NavLink>
                     {
                         isLogged?
-                            <Button onClick={()=>{
-                                Cookies.remove("token")
-                                navigate("../login")
-                            }}>Logout</Button>
+                            <Button onClick={logOut}>Logout</Button>
                             :
-                            <Button onClick={()=>{
-                                Cookies.remove("token")
-                                navigate("../login")
-                            }}>Login</Button>
+                            <Button onClick={logIn}>Login</Button>
 
                     }
 
@@ -49,3 +57,7 @@ const Index = () => {
 };
 
 export default Index;
+
+
+
+
