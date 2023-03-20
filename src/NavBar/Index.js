@@ -42,7 +42,8 @@ const Index = () => {
     return (
         <div className='navbar'>
             <div className="userInfo">
-            <UserInfo data={user} />
+                {isLogged&& <UserInfo data={user} /> }
+
             </div>
                 <Nav>
                 <NavMenu>
