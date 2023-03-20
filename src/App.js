@@ -8,6 +8,7 @@ import ProductPage from "./ProductPage";
 import Index from "./NavBar/Index";
 import DashboardPage from "./DashboardPage";
 import InnerProduct from "./InnerProduct";
+import UploadSale from "./UploadSale.js";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path={"/my-product"} element={<MyProductPage/>}/>
               <Route path={"/my-offer"} element={<MyOfferPage/>}/>
               <Route path={"/inner-product"} element={<InnerProduct/>}/>
+              <Route path={"/upload-sale"} element={<UploadSale/>}/>
         </Routes>
       </BrowserRouter>
   );

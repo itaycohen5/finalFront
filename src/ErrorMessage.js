@@ -20,6 +20,36 @@ function ErrorMessage (props) {
         case 1004:
             message = "Wrong username or password"
             break;
+        case 1005:
+            message = "Username is required!"
+            break;
+        case 1006:
+            message = "Password is required!"
+            break;
+        case 1007:
+            message = "Password is too weak"
+            break;
+        case 1008:
+            message = "Username already taken"
+            break;
+        case 1009:
+            message = "Wrong username or password"
+            break;
+        case 1010:
+            message = "No Product Description"
+            break;
+        case 1011:
+            message = "No Product Img"
+            break;
+        case 1012:
+            message = "No Product Name"
+            break;
+        case 1013:
+            message = "No Product Staring Price"
+            break;
+        case 1014:
+            message = "No 3 Offers On Sale"
+            break;
     }
     return (
         <span style={{color:"red"}}>

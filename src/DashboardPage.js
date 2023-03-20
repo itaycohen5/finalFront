@@ -54,11 +54,10 @@ function DashboardPage() {
 
         <div>
             <header>
-                <h1>Open Offers</h1>
-                <input type="text" onChange={handleSearch} placeholder="Search offers" />
+                <h1>Open Products</h1>
+                <input type="text" onChange={handleSearch} placeholder="Search Products" />
             </header>
 
-            <h1> Products For Sale: </h1>
             <div className="dashBoard1">
                 {
 

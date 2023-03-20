@@ -77,6 +77,17 @@ img:hover{
   flex-direction: column;
   margin: 20px 0;
 }
+.userInfo{
+  float: left;
+}
+
+form {
+  align-items: center;
+  padding: 10px;
+  width: 15%;
+  background-color: peachpuff;
+  height: 300px; /* only for demonstration, should be removed }  */
+}
 
 .card-description{
   display: flex;

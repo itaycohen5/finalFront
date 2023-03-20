@@ -32,6 +32,7 @@ function ProductComponent(props) {
                 <img  className="productImg" src={props.data.productImg} alt="product"/>
                 <h5> Descreption : {props.data.productDescription}</h5>
                 <h3>The Current Offer Is: <div style={{color: "green"}}>{highestOffer}$ </div></h3>
+                <h6>The minimum offer is: {props.data.startingPrice}</h6>
             </div>
         );
 
