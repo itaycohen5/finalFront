@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import Cookies from "js-cookie";
-import {switchClasses} from "@mui/material";
 import ErrorMessage from "./ErrorMessage";
 
 
@@ -60,7 +59,6 @@ function UploadSale() {
 
                     </form>
                 )
-
             }
         </div>
 
