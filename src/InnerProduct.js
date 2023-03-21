@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import Cookies from "js-cookie";
+import ErrorMessage from "./ErrorMessage";
 
 
 function InnerProduct() {
@@ -9,6 +10,8 @@ function InnerProduct() {
     const [highestOffer, setHighestOffer] = useState(0.0);
     const [closedSale, setClosedSale] = useState(false);
     const [errorCode, setErrorCode] = useState(0);
+    const [offerPrice, setOfferPrice] = useState("");
+    const [offerSuccess, setIsOfferSuccess] = useState(false);
 
     const productId = Cookies.get("productId");
     const token = Cookies.get("token");
@@ -37,7 +40,7 @@ function InnerProduct() {
 
 
     const closeSale = () => {
-        axios.post("http://localhost:8989/close-product?token="+token+"&productId="+productId).then((response) => {
+        axios.post("http://localhost:8989/close-product?token=" + token + "&productId=" + productId).then((response) => {
             if (response.data.success) {
                 setClosedSale(true)
                 console.log(closedSale)
@@ -45,6 +48,17 @@ function InnerProduct() {
                 const newErrorCode = response.data.errorCode;
                 setErrorCode(newErrorCode)
                 console.log(newErrorCode)
+            }
+        })
+    }
+
+    const saleOffer = () => {
+        axios.post("http://localhost:8989/post-offer?token=" + token + "&productId=" + productId + "&offerPrice=" + offerPrice).then((response) => {
+            if (response.data.success) {
+                setIsOfferSuccess(true)
+            } else {
+                const newErrorCode = response.data.errorCode;
+                setErrorCode(newErrorCode)
             }
         })
     }
@@ -67,7 +81,18 @@ function InnerProduct() {
                         <div>
                             {
                                 token === publisher.token ? (<button onClick={closeSale}>Close Sale</button>) : (
-                                    <button>Give An Offer</button>)
+                                    <div>
+                                    {
+                                        offerSuccess  ? (<h1> The Offer Upload Successfully</h1>) : (
+                                            <div>
+                                                <button onClick={saleOffer}>Give An Offer</button>
+                                                <input onChange={e => setOfferPrice(e.target.value) & setErrorCode(0)}/>
+                                                <ErrorMessage message={errorCode} lineBreak={true}/>
+                                            </div>
+                                        )
+                                    }
+                                    </div>
+                                )
                             }
                         </div>
                         <div>

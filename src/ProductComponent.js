@@ -13,7 +13,8 @@ function ProductComponent(props) {
         const interval = setInterval(() => {
             axios.get("http://localhost:8989/get-highest-offer?productId=" + props.data.id)
                 .then((response) => {
-                    const highestOfferFound = response.data.offer.offerAmount;
+                    const offerFound = response.data.offer;
+                    const highestOfferFound = offerFound.offerAmount
                     setHighestOffer(highestOfferFound);
                     console.log(highestOffer);
                 });

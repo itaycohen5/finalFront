@@ -1,4 +1,4 @@
-function ErrorMessage (props) {
+function ErrorMessage(props) {
     let message = props.message
 
     switch (message) {
@@ -50,9 +50,24 @@ function ErrorMessage (props) {
         case 1014:
             message = "No 3 Offers On Sale"
             break;
+        case 1020:
+            message = "Offer Amount Is Lower Than Highest Offer"
+            break;
+        case 1021:
+            message = "Offer Amount Is Lower Than Starting Price"
+            break;
+        case 1022:
+            message = "Product Is Not For Sale Anymore"
+            break;
+        case 1023:
+            message = "No Offer In The System"
+            break;
+        case 1024:
+            message = "No Enough Money"
+            break;
     }
     return (
-        <span style={{color:"red"}}>
+        <span style={{color: "red"}}>
             {
                 props.lineBreak ?
                     <div>

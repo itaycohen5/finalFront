@@ -5,7 +5,7 @@ import ErrorMessage from "./ErrorMessage";
 
 
 function UploadSale() {
-    const [name, setName] = useState('');
+    const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [pictureLink, setPictureLink] = useState("");
     const [minimumPrice, setMinimumPrice] = useState(0);
@@ -39,7 +39,7 @@ function UploadSale() {
                         </label> <br/>
                         <label>
                             Description:
-                            <textarea value={description} onChange={e => setDescription(e.target.value)}/>
+                            <input value={description} onChange={e => setDescription(e.target.value)}/>
                         </label><br/>
                         <label>
                             Picture Link:

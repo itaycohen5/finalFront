@@ -14,12 +14,15 @@ const Index = () => {
     const token = Cookies.get("token");
 
     useEffect(() => {
-        token !== undefined && setIsLogged(true)
-        axios.get("http://localhost:8989/get-user-by-token?token=" + token)
+            token !== undefined && setIsLogged(true)
+        axios.get("http://localhost:8989/get-user-by-token?token="+token)
             .then((response) => {
+                console.log(response.data.user)
                 setUser(response.data.user);
-            })
-    });
+                }
+            )}, [token]);
+    
+      
 
 
     const logOut = () => {
