@@ -20,7 +20,7 @@ const Index = () => {
                 console.log(response.data.user)
                 setUser(response.data.user);
                 }
-            )}, [token]);
+            )}, [token,user]);
     
       
 
